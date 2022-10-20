@@ -1,8 +1,8 @@
 exports.createPages = async ({ actions }) => {
   const { createPage } = actions
   createPage({
-    path: "/using-dsg",
-    component: require.resolve("./src/templates/using-dsg.js"),
+    path: "/gallery",
+    component: require.resolve("./src/templates/gallery.js"),
     context: {},
     defer: true,
   })
