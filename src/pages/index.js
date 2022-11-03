@@ -5,12 +5,14 @@ import Layout from "../components/Layout"
 import Hero from "../components/Hero"
 import About from "../components/About"
 import Galleries from "../components/Galleries"
+import slugify from "slugify"
+
 const homePage = ({ data }) => {
   return (
     <Layout>
       <Hero />
       <About />
-      <Galleries galleries={data.allAirtable.nodes} />
+      {/* <Galleries galleries={data.allAirtable.nodes} /> */}
     </Layout>
   )
 }
