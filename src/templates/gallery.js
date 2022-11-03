@@ -1,7 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Carousel from "../components/Carousel"
-import Placeholder from "../components/Placeholder"
 
 const gallery = ({
   data: {
@@ -9,8 +8,8 @@ const gallery = ({
   },
 }) => {
   const images = data.photos.localFiles
-  return <Placeholder />
-  // return <Carousel images={images} />
+
+  return <Carousel images={images} />
 }
 
 export const query = graphql`
