@@ -12,7 +12,7 @@ const homePage = ({ data }) => {
     <Layout>
       <Hero />
       <About />
-      {/* <Galleries galleries={data.allAirtable.nodes} /> */}
+      <Galleries galleries={data.allAirtable.nodes} />
     </Layout>
   )
 }

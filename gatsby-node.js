@@ -1,5 +1,5 @@
-// const path = require(`path`)
-// const slugify = require("slugify")
+const path = require(`path`)
+const slugify = require("slugify")
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
