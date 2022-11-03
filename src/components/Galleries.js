@@ -41,7 +41,7 @@ const Galleries = ({ galleries }) => {
                 }`}
                 key={id}
               >
-                <GatsbyImage image={getImage(image)} className="img" />
+                <GatsbyImage image={getImage(image)} className="img" alt="" />
                 <div className="info">
                   <span className="title">{title}</span>
                 </div>

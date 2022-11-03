@@ -21,9 +21,10 @@ const Filters = ({ articles, activeTag, setActiveTag, setDuringFiltering }) => {
 
   return (
     <Wrapper>
-      {filterOptions.map(tag => {
+      {filterOptions.map((tag, index) => {
         return (
           <button
+            key={index}
             className={`${tag === activeTag ? "tags active" : "tags"}`}
             onClick={() => filter(tag)}
           >
