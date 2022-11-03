@@ -1,7 +1,7 @@
 import React from "react"
 import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa"
 
-export default [
+const socialmedia = [
   {
     name: "facebook",
     url: "https://facebook.com",
@@ -18,3 +18,4 @@ export default [
     icon: <FaInstagram className="icon" />,
   },
 ]
+export default socialmedia

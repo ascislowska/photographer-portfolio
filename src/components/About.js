@@ -3,20 +3,11 @@ import styled from "styled-components"
 import Title from "./Title"
 import Blob from "./Blob"
 const About = () => {
-  const [isActive, setIsActive] = React.useState(false)
   return (
     <Wrapper>
-      <Blob isActive={isActive} />
+      <Blob />
 
-      <div
-        className="section-center"
-        onMouseOver={() => {
-          setIsActive(true)
-        }}
-        onMouseOut={() => {
-          setIsActive(false)
-        }}
-      >
+      <div className="section-center">
         <Title title="about" />
         <div className="info">
           <p>

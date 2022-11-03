@@ -10,7 +10,7 @@ const Navbar = () => {
 
       {socialmedia.map(link => {
         return (
-          <a href={link.url} key={link.name} target="_blank">
+          <a href={link.url} key={link.name} target="_blank" rel="noreferrer">
             <div className="btn">{link.icon}</div>
           </a>
         )

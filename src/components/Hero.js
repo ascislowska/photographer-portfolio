@@ -12,6 +12,7 @@ const Hero = () => {
         className="img"
         layout="fullWidth"
         placeholder="tracedSVG"
+        alt="flying confetti"
       />
       <div className="info">
         <Title title="Moments' catcher" />
