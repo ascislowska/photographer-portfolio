@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Carousel from "../components/Carousel"
+import "../assets/main.css"
 
 const gallery = ({
   data: {
