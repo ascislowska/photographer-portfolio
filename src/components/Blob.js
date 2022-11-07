@@ -1,35 +1,55 @@
-import React from "react"
+import React, { useRef, useState, useEffect } from "react"
 import styled from "styled-components"
 
-const Blob = ({ isActive }) => {
+const Blob = () => {
+  const wrapper = useRef()
+  const [isVisible, setIsVisible] = useState(false)
+  const runAnimation = entries => {
+    const [entry] = entries
+    setIsVisible(entry.isIntersecting)
+  }
+  const options = {
+    root: null,
+    rootMargin: "0px",
+    treshold: 1.0,
+  }
+  useEffect(() => {
+    const observer = new IntersectionObserver(runAnimation, options)
+    if (wrapper.current) observer.observe(wrapper.current)
+    //cleanup
+    return () => {
+      if (wrapper.current) {
+        observer.unobserve(wrapper.current)
+      }
+    }
+  }, [wrapper, options])
   return (
-    <Wrapper>
-      <div className="hover-area"> </div>
-      <div className="blob blob-1"></div>
-      <div className="blob blob-2"></div>
-      <div className="blob blob-3"></div>
+    <Wrapper
+      className={`${isVisible ? "blob-wrapper visible" : "blob-wrapper"}`}
+      ref={wrapper}
+    >
+      <div>
+        <div className="blob blob-1"></div>
+        <div className="blob blob-2"></div>
+        <div className="blob blob-3"></div>
+      </div>
     </Wrapper>
   )
 }
 const Wrapper = styled.div`
   position: absolute;
   width: 100%;
-  min-height: 100%;
+  height: 100%;
   overflow: hidden;
   background-color: var(--cultured-2);
-  .hover-area {
-    position: absolute;
-    width: 100%;
-    min-height: 100vh;
-    z-index: 1;
-  }
-  .hover-area:hover ~ .blob {
-    animation-play-state: running;
+  &.visible {
+    .blob {
+      animation-play-state: running;
+    }
   }
 
   .blob {
     animation-play-state: paused;
-
     position: absolute;
     background: rgb(131, 58, 180);
     background: linear-gradient(
@@ -68,7 +88,6 @@ const Wrapper = styled.div`
     transform: rotate(-60deg);
   }
 
-  /* .active { */
   .blob-1 {
     animation-duration: 30s;
     animation-iteration-count: infinite;
@@ -84,7 +103,6 @@ const Wrapper = styled.div`
     animation-iteration-count: infinite;
     animation-name: blob-3;
   }
-  /* } */
   @keyframes blob-1 {
     from {
       top: 10%;

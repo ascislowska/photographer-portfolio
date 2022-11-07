@@ -47,7 +47,7 @@ const Galleries = ({ galleries }) => {
                 </div>
               </Link>
             )
-          } else return <div>choose another category</div>
+          } else return null
         })}
       </div>
     </Wrapper>

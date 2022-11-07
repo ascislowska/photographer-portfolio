@@ -24,6 +24,12 @@ Variables
   --radius: 0.25rem;
   --max-width: 1170px;
   --fixed-width: 620px;
+
+  --gradient1: linear-gradient(
+    rgba(131, 58, 180, 0.5) 0%,
+    rgba(253, 29, 29, 0.3) 50%,
+    rgba(252, 176, 69, 0.2) 100%
+  );
 }
 
 /*
@@ -167,6 +173,7 @@ p {
   margin: 0 auto;
   max-width: var(--max-width);
 }
+
 @media screen and (min-width: 992px) {
   .section-center {
     width: 95vw;

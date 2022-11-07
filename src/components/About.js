@@ -45,6 +45,7 @@ const Wrapper = styled.section`
     background-color: white;
     opacity: 0.9;
     padding: 1.5rem;
+    margin: 1.5rem;
   }
   @media screen and (max-width: 600px) {
     .info {
