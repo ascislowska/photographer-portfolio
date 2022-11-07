@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useCallback } from "react"
 import Airtable from "airtable"
 import styled from "styled-components"
 import Title from "./Title"
@@ -8,14 +8,16 @@ var base = new Airtable({ apiKey: process.env.GATSBY_AIRTABLE_API }).base(
   process.env.GATSBY_AIRTABLE_BASE_ID
 )
 
+const compareVotes = (array1, array2) =>
+  array1.length === array2.length &&
+  array1.every(
+    (value, index) => value.fields.votes === array2[index].fields.votes
+  )
+
 const Survey = () => {
   const [items, setItems] = useState([])
-
-  useEffect(() => {
-    getRecords()
-  }, [getRecords])
-
-  const getRecords = async () => {
+  const getRecords = useCallback(async () => {
+    console.log("getting records")
     const records = await base("survey")
       .select({})
       .firstPage()
@@ -26,13 +28,35 @@ const Survey = () => {
       const { id, fields } = record
       return { id, fields }
     })
-    if (items !== newItems) {
+    if (!compareVotes(items, newItems)) {
       setItems(newItems)
     }
-  }
+  }, [items])
+
+  useEffect(() => {
+    getRecords()
+  }, [getRecords])
+
+  // const getRecords = async () => {
+  //   console.log("getting records")
+
+  //   const records = await base("survey")
+  //     .select({})
+  //     .firstPage()
+  //     .catch(error => {
+  //       console.log(error)
+  //     })
+  //   const newItems = records.map(record => {
+  //     const { id, fields } = record
+  //     return { id, fields }
+  //   })
+  //   if (!compareArrays(items, newItems)) {
+  //     console.log("updating state")
+  //     setItems(newItems)
+  //   }
+  // }
 
   const vote = async (id, votes) => {
-    console.log("clicck")
     await base("survey")
       .update([
         {
@@ -47,9 +71,6 @@ const Survey = () => {
   }
 
   return (
-    // <section className="section">
-    //   <button onClick={() => console.log("click")}>test</button>
-    // </section>
     <Wrapper>
       <Blob />
       <div className="section-center">
