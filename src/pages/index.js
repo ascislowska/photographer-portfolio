@@ -7,6 +7,7 @@ import About from "../components/About"
 import Galleries from "../components/Galleries"
 import Survey from "../components/Survey"
 import Contact from "../components/Contact"
+import Footer from "../components/Footer"
 const homePage = ({ data }) => {
   return (
     <Layout>
@@ -15,6 +16,7 @@ const homePage = ({ data }) => {
       <Galleries galleries={data.allAirtable.nodes} />
       <Survey />
       <Contact />
+      <Footer />
     </Layout>
   )
 }

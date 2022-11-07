@@ -17,7 +17,6 @@ const compareVotes = (array1, array2) =>
 const Survey = () => {
   const [items, setItems] = useState([])
   const getRecords = useCallback(async () => {
-    console.log("getting records")
     const records = await base("survey")
       .select({})
       .firstPage()
@@ -37,25 +36,6 @@ const Survey = () => {
     getRecords()
   }, [getRecords])
 
-  // const getRecords = async () => {
-  //   console.log("getting records")
-
-  //   const records = await base("survey")
-  //     .select({})
-  //     .firstPage()
-  //     .catch(error => {
-  //       console.log(error)
-  //     })
-  //   const newItems = records.map(record => {
-  //     const { id, fields } = record
-  //     return { id, fields }
-  //   })
-  //   if (!compareArrays(items, newItems)) {
-  //     console.log("updating state")
-  //     setItems(newItems)
-  //   }
-  // }
-
   const vote = async (id, votes) => {
     await base("survey")
       .update([
@@ -74,12 +54,7 @@ const Survey = () => {
     <Wrapper>
       <Blob />
       <div className="section-center">
-        <Title
-          title="Survey"
-          onClick={() => {
-            console.log(" title clicked")
-          }}
-        />
+        <Title title="Survey" />
         <div className="survey">
           <h2>Which moments are the most important to catch?</h2>
           <div className="options">
@@ -123,6 +98,9 @@ const Wrapper = styled.section`
     background-color: white;
     opacity: 0.9;
     padding: 1.5rem;
+    h2 {
+      text-align: center;
+    }
   }
   .options {
     display: flex;
