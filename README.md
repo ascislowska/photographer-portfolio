@@ -12,6 +12,11 @@ Photographer portfolio developed with Gatsby. Fast loading of high quality photo
   - [Survey with real-time results](https://github.com/ascislowska/photographer-portfolio/blob/901c82efa7f5eaf8e1c644f13719468457d2645c/src/components/Survey.js#LL17C10-L17C10)
   - [Photos' carousel built from scratch (with scroll!)](https://github.com/ascislowska/photographer-portfolio/blob/901c82efa7f5eaf8e1c644f13719468457d2645c/src/components/Carousel.js#L7)
   - [Filtering](https://github.com/ascislowska/photographer-portfolio/blob/master/src/components/Filters.js)
+  
+
+https://github.com/ascislowska/photographer-portfolio/assets/96797979/3289eedc-957b-47ef-a999-80d47db7982d
+
+
   - [Flying blobs animation](https://github.com/ascislowska/photographer-portfolio/blob/master/src/components/Blob.js)
 - CSS
   - [Styled components](https://github.com/ascislowska/photographer-portfolio/blob/901c82efa7f5eaf8e1c644f13719468457d2645c/src/components/Hero.js#L24)
